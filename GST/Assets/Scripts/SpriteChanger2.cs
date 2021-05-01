@@ -12,7 +12,7 @@ public class SpriteChanger2 : MonoBehaviour
     {
 
         SpriteInt = 1;
-        InvokeRepeating("SpriteChange", 0, 1);
+        InvokeRepeating("SpriteChange", 0, 0.2f);
         
         // calling a function after a sort delay
     }
@@ -20,7 +20,7 @@ public class SpriteChanger2 : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
         {
             PlayerMoving = true;
         }
@@ -33,21 +33,9 @@ public class SpriteChanger2 : MonoBehaviour
 
     void SpriteChange()
     {
-            if (PlayerMoving == false)
-            {
-                if (SpriteInt == 1)
-                {
-                    this.GetComponent<SpriteRenderer>().sprite = idle1;
-                }
+            
 
-                else if (SpriteInt == 2)
-                {
-                    this.GetComponent<SpriteRenderer>().sprite = idle2;
-                    SpriteInt = 0;
-                }
-            }
-
-            else if (PlayerMoving == true)
+            if (PlayerMoving == true)
             {
                 if (SpriteInt == 1)
                 {
@@ -70,11 +58,33 @@ public class SpriteChanger2 : MonoBehaviour
                     SpriteInt = 0;
                 }
             }
-        SpriteInt++;
-    }
 
-    public void IdleCheck()
-    {
-        
+        if (PlayerMoving == false)
+        {
+            if (SpriteInt == 1)
+            {
+                this.GetComponent<SpriteRenderer>().sprite = idle1;
+            }
+
+            else if (SpriteInt == 2)
+            {
+                this.GetComponent<SpriteRenderer>().sprite = idle1;
+                
+            }
+
+            else if (SpriteInt == 3)
+            {
+                this.GetComponent<SpriteRenderer>().sprite = idle2;
+              
+            }
+
+            else if (SpriteInt == 4)
+            {
+                this.GetComponent<SpriteRenderer>().sprite = idle2;
+                SpriteInt = 0;
+            }
+        }
+
+        SpriteInt++;
     }
 }    
