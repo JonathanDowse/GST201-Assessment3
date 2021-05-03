@@ -5,12 +5,16 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
     public bool gamePaused = false;
-    public GameObject pauseMenu;
+    public GameObject pauseMenu, exitMenu, optionsMenu, exitButton, optionsButton, menuReturn, gameExit, exitX, unpauseBtn, pauseX, optionsX, musicSlider, volumeSlider;
+    public GameObject pauseScreen;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Time.timeScale = 1;
+        gamePaused = false;
+        Cursor.visible = false;
+        pauseMenu.SetActive(false);
     }
 
     // Update is called once per frame
@@ -20,21 +24,34 @@ public class PauseMenu : MonoBehaviour
         {
             if (gamePaused == false)
             {
-                Time.timeScale = 0;
-                gamePaused = true;
-                Cursor.visible = true;
-                pauseMenu.SetActive(true);
+                Pause();
+                
             }
 
-            else
+            else if (gamePaused == true)
             {
-                Time.timeScale = 1;
-                gamePaused = false;
-                Cursor.visible = false;
-                pauseMenu.SetActive(false);
+                Unpause();
             }
         }
     }
 
-   
+    public void Pause()
+    {
+        Time.timeScale = 0;
+        gamePaused = true;
+        Cursor.visible = true;
+        pauseMenu.SetActive(true);
+        pauseScreen.SetActive(true);
+        exitMenu.SetActive(false);
+        optionsMenu.SetActive(false);
+    }
+
+   public void Unpause()
+    {
+        Time.timeScale = 1;
+        gamePaused = false;
+        Cursor.visible = false;
+        pauseMenu.SetActive(false);
+        pauseScreen.SetActive(false);
+    }
 }
