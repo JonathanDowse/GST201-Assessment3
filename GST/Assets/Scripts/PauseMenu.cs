@@ -5,8 +5,14 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
     public bool gamePaused = false;
-    public GameObject pauseMenu, exitMenu, optionsMenu, exitButton, optionsButton, menuReturn, gameExit, exitX, unpauseBtn, pauseX, optionsX, musicSlider, volumeSlider;
-    public GameObject pauseScreen;
+
+    public GameObject pauseScreen, pauseX, unpauseBtn, optionsBtn, exitBtn;
+    public GameObject optionsScreen, optionsX, volumeSlider, musicSlider;
+    public GameObject exitScreen, exitX, menuReturnBtn, gameExitBtn;
+    public GameObject pauseMenu;
+
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +21,19 @@ public class PauseMenu : MonoBehaviour
         gamePaused = false;
         Cursor.visible = false;
         pauseMenu.SetActive(false);
+        pauseScreen.SetActive(false);
+        pauseX.SetActive(false);
+        unpauseBtn.SetActive(false);
+        optionsBtn.SetActive(false);
+        exitBtn.SetActive(false);
+        optionsScreen.SetActive(false);
+        optionsX.SetActive(false);
+        volumeSlider.SetActive(false);
+        musicSlider.SetActive(false);
+        exitScreen.SetActive(false);
+        exitX.SetActive(false);
+        menuReturnBtn.SetActive(false);
+        gameExitBtn.SetActive(false);
     }
 
     // Update is called once per frame
@@ -42,8 +61,18 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = true;
         pauseMenu.SetActive(true);
         pauseScreen.SetActive(true);
-        exitMenu.SetActive(false);
-        optionsMenu.SetActive(false);
+        pauseX.SetActive(true);
+        unpauseBtn.SetActive(true);
+        optionsBtn.SetActive(true);
+        exitBtn.SetActive(true);
+        optionsScreen.SetActive(false);
+        optionsX.SetActive(false);
+        volumeSlider.SetActive(false);
+        musicSlider.SetActive(false);
+        exitScreen.SetActive(false);
+        exitX.SetActive(false);
+        menuReturnBtn.SetActive(false);
+        gameExitBtn.SetActive(false);
     }
 
    public void Unpause()
@@ -52,6 +81,79 @@ public class PauseMenu : MonoBehaviour
         gamePaused = false;
         Cursor.visible = false;
         pauseMenu.SetActive(false);
+        
+    }
+
+
+    public void optionsBtnPressed()
+    {
+        pauseMenu.SetActive(true);
         pauseScreen.SetActive(false);
+        pauseX.SetActive(false);
+        unpauseBtn.SetActive(false);
+        optionsBtn.SetActive(false);
+        exitBtn.SetActive(false);
+        optionsScreen.SetActive(true);
+        optionsX.SetActive(true);
+        volumeSlider.SetActive(true);
+        musicSlider.SetActive(true);
+        exitScreen.SetActive(false);
+        exitX.SetActive(false);
+        menuReturnBtn.SetActive(false);
+        gameExitBtn.SetActive(false);
+    }
+
+    public void exitBtnPressed()
+    {
+        pauseMenu.SetActive(true);
+        pauseScreen.SetActive(false);
+        pauseX.SetActive(false);
+        unpauseBtn.SetActive(false);
+        optionsBtn.SetActive(false);
+        exitBtn.SetActive(false);
+        optionsScreen.SetActive(false);
+        optionsX.SetActive(false);
+        volumeSlider.SetActive(false);
+        musicSlider.SetActive(false);
+        exitScreen.SetActive(true);
+        exitX.SetActive(true);
+        menuReturnBtn.SetActive(true);
+        gameExitBtn.SetActive(true);
+    }
+
+    public void optionsXPressed()
+    {
+        pauseMenu.SetActive(true);
+        pauseScreen.SetActive(true);
+        pauseX.SetActive(true);
+        unpauseBtn.SetActive(true);
+        optionsBtn.SetActive(true);
+        exitBtn.SetActive(true);
+        optionsScreen.SetActive(false);
+        optionsX.SetActive(false);
+        volumeSlider.SetActive(false);
+        musicSlider.SetActive(false);
+        exitScreen.SetActive(false);
+        exitX.SetActive(false);
+        menuReturnBtn.SetActive(false);
+        gameExitBtn.SetActive(false);
+    }    
+
+    public void exitXPressed()
+    {
+        pauseMenu.SetActive(true);
+        pauseScreen.SetActive(true);
+        pauseX.SetActive(true);
+        unpauseBtn.SetActive(true);
+        optionsBtn.SetActive(true);
+        exitBtn.SetActive(true);
+        optionsScreen.SetActive(false);
+        optionsX.SetActive(false);
+        volumeSlider.SetActive(false);
+        musicSlider.SetActive(false);
+        exitScreen.SetActive(false);
+        exitX.SetActive(false);
+        menuReturnBtn.SetActive(false);
+        gameExitBtn.SetActive(false);
     }
 }
