@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
+    public AudioClip grassStep1, grassStep2, woodStep1, woodStep2;
     bool PlayerMoving;
     int SpriteInt;
     public Sprite idle1, idle2, walking1, walking2, walking3, walking4;
     // Start is called before the first frame update
     void Start()
     {
-
+        
         SpriteInt = 1;
         InvokeRepeating("SpriteChange", 0, 0.2f);
 
@@ -45,6 +46,9 @@ public class PlayerAnimation : MonoBehaviour
             else if (SpriteInt == 2)
             {
                 this.GetComponent<SpriteRenderer>().sprite = walking2;
+                AudioSource stepping = GetComponent<AudioSource>();
+                stepping.clip = woodStep1;
+                stepping.Play();
             }
 
             else if (SpriteInt == 3)
@@ -56,6 +60,9 @@ public class PlayerAnimation : MonoBehaviour
             {
                 this.GetComponent<SpriteRenderer>().sprite = walking4;
                 SpriteInt = 0;
+                AudioSource stepping = GetComponent<AudioSource>();
+                stepping.clip = woodStep2;
+                stepping.Play();
             }
         }
 
