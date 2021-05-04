@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public Sprite walking1, walking2, walking3, walking4;
     Rigidbody2D rb;
     public float speed;
-    
+    public bool gameOver = false;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +19,9 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
          
-        Move();
+            Move();
+       
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -33,25 +35,38 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, -4.1f, transform.position.z);
         }
+
+        if (collision.tag == "End")
+        {
+            gameOver = true;
+        }
     }
 
 
     void Move()
     {
-        float x = Input.GetAxisRaw("Horizontal");
-        float moveBy = x * speed;
-        rb.velocity = new Vector2(moveBy, rb.velocity.y);
-
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        if (gameOver == false)
         {
-            this.transform.localRotation = Quaternion.Euler(0, 180, 0);
+            float x = Input.GetAxisRaw("Horizontal");
+            float moveBy = x * speed;
+            rb.velocity = new Vector2(moveBy, rb.velocity.y);
+
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+            {
+                this.transform.localRotation = Quaternion.Euler(0, 180, 0);
+            }
+
+            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+            {
+                this.transform.localRotation = Quaternion.Euler(0, 0, 0);
+            }
+
         }
 
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        if (gameOver == true)
         {
-            this.transform.localRotation = Quaternion.Euler(0, 0, 0);
+            this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
         }
-        
-        
     }
+
 }

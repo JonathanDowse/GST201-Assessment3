@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
+    public GameObject movement;
+    bool gameComplete = false;
     public AudioClip grassStep1, grassStep2, woodStep1, woodStep2;
     bool PlayerIndoors;
     bool PlayerMoving;
@@ -13,6 +15,7 @@ public class PlayerAnimation : MonoBehaviour
     void Start()
     {
         
+      // GameObject.Find("Player").GetComponent<PlayerMovement>.gameOver;
         SpriteInt = 1;
         InvokeRepeating("SpriteChange", 0, 0.2f);
 
@@ -21,13 +24,19 @@ public class PlayerAnimation : MonoBehaviour
 
     void Update()
     {
+        gameComplete = this.GetComponent<PlayerMovement>().gameOver;
 
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow) && gameComplete == false) 
         {
             PlayerMoving = true;
         }
 
         else
+        {
+            PlayerMoving = false;
+        }
+
+        if (gameComplete == true)
         {
             PlayerMoving = false;
         }
@@ -49,87 +58,88 @@ public class PlayerAnimation : MonoBehaviour
 
     void SpriteChange()
     {
+        
 
-
-        if (PlayerMoving == true)
-        {
-            if (SpriteInt == 1)
+            if (PlayerMoving == true && gameComplete == false)
             {
-                this.GetComponent<SpriteRenderer>().sprite = walking1;
-            }
-
-            else if (SpriteInt == 2)
-            {
-                this.GetComponent<SpriteRenderer>().sprite = walking2;
-                
-                if (PlayerIndoors == true)
+                if (SpriteInt == 1)
                 {
-                    AudioSource stepping = GetComponent<AudioSource>();
-                    stepping.clip = woodStep1;
-                    stepping.Play();
+                    this.GetComponent<SpriteRenderer>().sprite = walking1;
                 }
 
-                else if (PlayerIndoors == false)
+                else if (SpriteInt == 2)
                 {
-                    AudioSource stepping = GetComponent<AudioSource>();
-                    stepping.clip = grassStep1;
-                    stepping.Play();
+                    this.GetComponent<SpriteRenderer>().sprite = walking2;
+
+                    if (PlayerIndoors == true)
+                    {
+                        AudioSource stepping = GetComponent<AudioSource>();
+                        stepping.clip = woodStep1;
+                        stepping.Play();
+                    }
+
+                    else if (PlayerIndoors == false)
+                    {
+                        AudioSource stepping = GetComponent<AudioSource>();
+                        stepping.clip = grassStep1;
+                        stepping.Play();
+                    }
+
                 }
-                
+
+                else if (SpriteInt == 3)
+                {
+                    this.GetComponent<SpriteRenderer>().sprite = walking3;
+                }
+
+                else if (SpriteInt == 4)
+                {
+                    this.GetComponent<SpriteRenderer>().sprite = walking4;
+                    SpriteInt = 0;
+
+                    if (PlayerIndoors == true)
+                    {
+                        AudioSource stepping = GetComponent<AudioSource>();
+                        stepping.clip = woodStep2;
+                        stepping.Play();
+                    }
+
+                    else if (PlayerIndoors == false)
+                    {
+                        AudioSource stepping = GetComponent<AudioSource>();
+                        stepping.clip = grassStep2;
+                        stepping.Play();
+                    }
+                }
             }
 
-            else if (SpriteInt == 3)
+            if (PlayerMoving == false)
             {
-                this.GetComponent<SpriteRenderer>().sprite = walking3;
-            }
-
-            else if (SpriteInt == 4)
-            {
-                this.GetComponent<SpriteRenderer>().sprite = walking4;
-                SpriteInt = 0;
-                
-                if (PlayerIndoors == true)
+                if (SpriteInt == 1)
                 {
-                    AudioSource stepping = GetComponent<AudioSource>();
-                    stepping.clip = woodStep2;
-                    stepping.Play();
+                    this.GetComponent<SpriteRenderer>().sprite = idle1;
                 }
 
-                else if (PlayerIndoors == false)
+                else if (SpriteInt == 2)
                 {
-                    AudioSource stepping = GetComponent<AudioSource>();
-                    stepping.clip = grassStep2;
-                    stepping.Play();
+                    this.GetComponent<SpriteRenderer>().sprite = idle1;
+
+                }
+
+                else if (SpriteInt == 3)
+                {
+                    this.GetComponent<SpriteRenderer>().sprite = idle2;
+
+                }
+
+                else if (SpriteInt == 4)
+                {
+                    this.GetComponent<SpriteRenderer>().sprite = idle2;
+                    SpriteInt = 0;
                 }
             }
+
+            SpriteInt++;
         }
-
-        if (PlayerMoving == false)
-        {
-            if (SpriteInt == 1)
-            {
-                this.GetComponent<SpriteRenderer>().sprite = idle1;
-            }
-
-            else if (SpriteInt == 2)
-            {
-                this.GetComponent<SpriteRenderer>().sprite = idle1;
-
-            }
-
-            else if (SpriteInt == 3)
-            {
-                this.GetComponent<SpriteRenderer>().sprite = idle2;
-
-            }
-
-            else if (SpriteInt == 4)
-            {
-                this.GetComponent<SpriteRenderer>().sprite = idle2;
-                SpriteInt = 0;
-            }
-        }
-
-        SpriteInt++;
-    }
+    
 }
