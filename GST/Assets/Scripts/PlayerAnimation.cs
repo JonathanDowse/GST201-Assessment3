@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerAnimation : MonoBehaviour
 {
     public AudioClip grassStep1, grassStep2, woodStep1, woodStep2;
+    bool PlayerIndoors;
     bool PlayerMoving;
     int SpriteInt;
     public Sprite idle1, idle2, walking1, walking2, walking3, walking4;
@@ -32,6 +33,20 @@ public class PlayerAnimation : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Indoors")
+        {
+            PlayerIndoors = true;
+        }
+
+        if (collision.tag == "Outdoors")
+        {
+            PlayerIndoors = false;
+        }
+    }
+
+
     void SpriteChange()
     {
 
@@ -46,9 +61,21 @@ public class PlayerAnimation : MonoBehaviour
             else if (SpriteInt == 2)
             {
                 this.GetComponent<SpriteRenderer>().sprite = walking2;
-                AudioSource stepping = GetComponent<AudioSource>();
-                stepping.clip = woodStep1;
-                stepping.Play();
+                
+                if (PlayerIndoors == true)
+                {
+                    AudioSource stepping = GetComponent<AudioSource>();
+                    stepping.clip = woodStep1;
+                    stepping.Play();
+                }
+
+                else if (PlayerIndoors == false)
+                {
+                    AudioSource stepping = GetComponent<AudioSource>();
+                    stepping.clip = grassStep1;
+                    stepping.Play();
+                }
+                
             }
 
             else if (SpriteInt == 3)
@@ -60,9 +87,20 @@ public class PlayerAnimation : MonoBehaviour
             {
                 this.GetComponent<SpriteRenderer>().sprite = walking4;
                 SpriteInt = 0;
-                AudioSource stepping = GetComponent<AudioSource>();
-                stepping.clip = woodStep2;
-                stepping.Play();
+                
+                if (PlayerIndoors == true)
+                {
+                    AudioSource stepping = GetComponent<AudioSource>();
+                    stepping.clip = woodStep2;
+                    stepping.Play();
+                }
+
+                else if (PlayerIndoors == false)
+                {
+                    AudioSource stepping = GetComponent<AudioSource>();
+                    stepping.clip = grassStep2;
+                    stepping.Play();
+                }
             }
         }
 

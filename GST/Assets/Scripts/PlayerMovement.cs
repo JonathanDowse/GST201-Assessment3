@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public Sprite walking1, walking2, walking3, walking4;
     Rigidbody2D rb;
     public float speed;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -17,8 +18,23 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+         
         Move();
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Indoors")
+        {
+            transform.position = new Vector3(transform.position.x, -3.72f, transform.position.z);
+        }
+
+        else if (collision.tag == "Outdoors")
+        {
+            transform.position = new Vector3(transform.position.x, -4.1f, transform.position.z);
+        }
+    }
+
 
     void Move()
     {
@@ -35,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
         {
             this.transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
+        
         
     }
 }

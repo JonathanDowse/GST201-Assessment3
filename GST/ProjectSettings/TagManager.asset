@@ -8,6 +8,11 @@ TagManager:
   - Outdoors
   - Blockage
   - Transition
+  - Room1
+  - Room2
+  - Room3
+  - Room4
+  - Room5
   layers:
   - Default
   - TransparentFX
@@ -44,4 +49,37 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Sky
+    uniqueID: 4209035357
+    locked: 0
+  - name: Grid
+    uniqueID: 3392756817
+    locked: 0
+  - name: Back Deco
+    uniqueID: 3893221513
+    locked: 0
+  - name: Mid Deco
+    uniqueID: 258482221
+    locked: 0
+  - name: Front Deco
+    uniqueID: 3569974535
+    locked: 0
+  - name: Black Layer
+    uniqueID: 3003538549
+    locked: 0
+  - name: CandleLight
+    uniqueID: 3169640537
+    locked: 0
+  - name: Candles
+    uniqueID: 1891685543
+    locked: 0
+  - name: Character
+    uniqueID: 1469670627
+    locked: 0
+  - name: 'Colouring '
+    uniqueID: 1249486627
+    locked: 0
+  - name: Pause
+    uniqueID: 292135071
     locked: 0
