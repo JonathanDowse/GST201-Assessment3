@@ -25,7 +25,7 @@ public class ColorChanger : MonoBehaviour
 
         AudioSource musicChange = GetComponent<AudioSource>();
         musicChange.clip = outside;
-        musicChange.volume = 1;
+        musicChange.volume = 1f;
         musicChange.Play();
     }
 
@@ -38,7 +38,7 @@ public class ColorChanger : MonoBehaviour
 
             AudioSource musicChange = GetComponent<AudioSource>();
             musicChange.clip = room1;
-            musicChange.volume = 1;
+            musicChange.volume = 0.2f;
             musicChange.Play();
         }
 
@@ -48,7 +48,7 @@ public class ColorChanger : MonoBehaviour
             colorFader.CrossFadeAlpha(0.15f, 1, false);
             AudioSource musicChange = GetComponent<AudioSource>();
             musicChange.clip = room2;
-            musicChange.volume = 1;
+            musicChange.volume = 0.2f;
             musicChange.Play();
         }
 
@@ -58,7 +58,7 @@ public class ColorChanger : MonoBehaviour
             colorFader.CrossFadeAlpha(0.15f, 1, false);
             AudioSource musicChange = GetComponent<AudioSource>();
             musicChange.clip = room3;
-            musicChange.volume = 1;
+            musicChange.volume = 0.2f;
             musicChange.Play();
         }
 
@@ -68,7 +68,7 @@ public class ColorChanger : MonoBehaviour
             colorFader.CrossFadeAlpha(0.5f, 1, false);
             AudioSource musicChange = GetComponent<AudioSource>();
             musicChange.clip = room4;
-            musicChange.volume = 1;
+            musicChange.volume = 0.2f;
             musicChange.Play();
         }
 
@@ -83,15 +83,16 @@ public class ColorChanger : MonoBehaviour
         {
             AudioSource musicChange = GetComponent<AudioSource>();
             musicChange.clip = room5;
-            musicChange.volume = 1;
+            musicChange.volume = 0.2f;
             musicChange.Play();
         }
 
         if (collision.tag == "Transition")
         {
+
             AudioSource musicChange = GetComponent<AudioSource>();
             musicChange.clip = transition;
-            musicChange.volume = 1;
+            musicChange.volume = 0.4f;
             musicChange.Play();
 
         }
@@ -100,7 +101,7 @@ public class ColorChanger : MonoBehaviour
         {
             AudioSource musicChange = GetComponent<AudioSource>();
             musicChange.clip = outside;
-            musicChange.volume = 1;
+            musicChange.volume = 1f;
             musicChange.Play();
         }
     }
@@ -131,5 +132,7 @@ public class ColorChanger : MonoBehaviour
         {
             colorFader.CrossFadeAlpha(0, 1, false);
         }
+
+        
     }
 }

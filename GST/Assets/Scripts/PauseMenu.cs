@@ -8,8 +8,7 @@ public class PauseMenu : MonoBehaviour
 {
     public bool gamePaused = false;
 
-    public GameObject pauseScreen, pauseX, unpauseBtn, optionsBtn, exitBtn;
-    public GameObject optionsScreen, optionsX, volumeSlider, musicSlider;
+    public GameObject pauseScreen, pauseX, unpauseBtn, exitBtn;
     public GameObject exitScreen, exitX, menuReturnBtn, gameExitBtn;
     public GameObject pauseMenu;
 
@@ -26,12 +25,9 @@ public class PauseMenu : MonoBehaviour
         pauseScreen.SetActive(false);
         pauseX.SetActive(false);
         unpauseBtn.SetActive(false);
-        optionsBtn.SetActive(false);
+        
         exitBtn.SetActive(false);
-        optionsScreen.SetActive(false);
-        optionsX.SetActive(false);
-        volumeSlider.SetActive(false);
-        musicSlider.SetActive(false);
+        
         exitScreen.SetActive(false);
         exitX.SetActive(false);
         menuReturnBtn.SetActive(false);
@@ -65,12 +61,9 @@ public class PauseMenu : MonoBehaviour
         pauseScreen.SetActive(true);
         pauseX.SetActive(true);
         unpauseBtn.SetActive(true);
-        optionsBtn.SetActive(true);
+        
         exitBtn.SetActive(true);
-        optionsScreen.SetActive(false);
-        optionsX.SetActive(false);
-        volumeSlider.SetActive(false);
-        musicSlider.SetActive(false);
+        
         exitScreen.SetActive(false);
         exitX.SetActive(false);
         menuReturnBtn.SetActive(false);
@@ -87,23 +80,7 @@ public class PauseMenu : MonoBehaviour
     }
 
 
-    public void optionsBtnPressed()
-    {
-        pauseMenu.SetActive(true);
-        pauseScreen.SetActive(false);
-        pauseX.SetActive(false);
-        unpauseBtn.SetActive(false);
-        optionsBtn.SetActive(false);
-        exitBtn.SetActive(false);
-        optionsScreen.SetActive(true);
-        optionsX.SetActive(true);
-        volumeSlider.SetActive(true);
-        musicSlider.SetActive(true);
-        exitScreen.SetActive(false);
-        exitX.SetActive(false);
-        menuReturnBtn.SetActive(false);
-        gameExitBtn.SetActive(false);
-    }
+   
 
     public void exitBtnPressed()
     {
@@ -111,35 +88,16 @@ public class PauseMenu : MonoBehaviour
         pauseScreen.SetActive(false);
         pauseX.SetActive(false);
         unpauseBtn.SetActive(false);
-        optionsBtn.SetActive(false);
+        
         exitBtn.SetActive(false);
-        optionsScreen.SetActive(false);
-        optionsX.SetActive(false);
-        volumeSlider.SetActive(false);
-        musicSlider.SetActive(false);
+        
         exitScreen.SetActive(true);
         exitX.SetActive(true);
         menuReturnBtn.SetActive(true);
         gameExitBtn.SetActive(true);
     }
 
-    public void optionsXPressed()
-    {
-        pauseMenu.SetActive(true);
-        pauseScreen.SetActive(true);
-        pauseX.SetActive(true);
-        unpauseBtn.SetActive(true);
-        optionsBtn.SetActive(true);
-        exitBtn.SetActive(true);
-        optionsScreen.SetActive(false);
-        optionsX.SetActive(false);
-        volumeSlider.SetActive(false);
-        musicSlider.SetActive(false);
-        exitScreen.SetActive(false);
-        exitX.SetActive(false);
-        menuReturnBtn.SetActive(false);
-        gameExitBtn.SetActive(false);
-    }    
+       
 
     public void exitXPressed()
     {
@@ -147,12 +105,9 @@ public class PauseMenu : MonoBehaviour
         pauseScreen.SetActive(true);
         pauseX.SetActive(true);
         unpauseBtn.SetActive(true);
-        optionsBtn.SetActive(true);
+        
         exitBtn.SetActive(true);
-        optionsScreen.SetActive(false);
-        optionsX.SetActive(false);
-        volumeSlider.SetActive(false);
-        musicSlider.SetActive(false);
+        
         exitScreen.SetActive(false);
         exitX.SetActive(false);
         menuReturnBtn.SetActive(false);

@@ -27,6 +27,7 @@ ScriptsOnlyBuild:
     - UnityEditor.Tilemaps.GridPaintPaletteWindow
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
+    - UnityEditor.Tilemaps.GridPalettes
     - UnityEditor.Tilemaps.PaintableSceneViewGrid
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.SceneViewOpenTilePaletteHelper
@@ -51,7 +52,6 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
-    - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
   sceneClasses:
     Assets/Scenes/Game.unity:
@@ -83,8 +83,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 604}
     - Class: 114
       Script: {instanceID: 1486}
-    - Class: 114
-      Script: {instanceID: 1654}
     - Class: 114
       Script: {instanceID: 1842}
     - Class: 114
@@ -555,7 +553,7 @@ ScriptsOnlyBuild:
     className: BaseInput
   - hash:
       serializedVersion: 2
-      Hash: 05f8d4591e34877481a65db109e57c5b
+      Hash: 111d4157eec51dea5a1f15ca21e66fc8
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PauseMenu
@@ -821,4 +819,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/Main Menu.unity
   - Assets/Scenes/Game.unity
-  playerPath: C:/Users/Jonat/Downloads/Current Assessments/GST201 Assessment 3/test/GST.exe
+  playerPath: C:/Users/Jonat/Downloads/Current Assessments/GST201 Assessment 3/test2/GST.exe

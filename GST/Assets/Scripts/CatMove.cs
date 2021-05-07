@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class CatMove : MonoBehaviour
 {
-    
 
-    
+    private void Awake()
+    {
+        Update();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
